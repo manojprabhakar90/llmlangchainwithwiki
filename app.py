@@ -13,7 +13,7 @@ st.title('🦜🔗 Youtube GPT Creator')
 prompt = st.text_input('Plug in your prompt here')
 
 titletemplate = PromptTemplate(
-	input_variables = ['Topic'],
+	input_variables = ['topic'],
 	template = 'Write me a Youtube video title about {topic}')
 
 
