@@ -6,6 +6,11 @@ from langchain.chains import LLMChain,SequentialChain
 from langchain.memory import ConversationBufferMemory
 from langchain.utilities import WikipediaAPIWrapper
 
+def get_api_key():
+    input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
+    return input_text
+
+openai_api_key = get_api_key()
 
 st.title('🦜🔗 Youtube GPT Creator')
 prompt = st.text_input('Plug in your prompt here')
@@ -22,17 +27,12 @@ scripttemplate = PromptTemplate(
 titlememory = ConversationBufferMemory(input_key='topic',memory_key='chat_history')
 scriptmemory = ConversationBufferMemory(input_key='title',memory_key='chat_history')
 
-llm=OpenAI(temperature = 0.9)
+llm=OpenAI(temperature = 0.9,openai_api_key = get_api_key())
 title_chain = LLMchain(llm = llm, prompt = titletemplate,verbose=True,output_key='title',memory=titlememory)
 script_chain = LLMchain(llm = llm, prompt = scripttemplate,verbose=True,output_key='script',memory=scriptmemory)
 
 wiki = WikipediaAPIWrapper()
 
-def get_api_key():
-    input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
-    return input_text
-
-openai_api_key = get_api_key()
 
 
 if prompt:
