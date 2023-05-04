@@ -27,7 +27,7 @@ scripttemplate = PromptTemplate(
 titlememory = ConversationBufferMemory(input_key='topic',memory_key='chat_history')
 scriptmemory = ConversationBufferMemory(input_key='title',memory_key='chat_history')
 
-llm=OpenAI(temperature = 0.9,openai_api_key = get_api_key())
+llm=OpenAI(temperature = 0.9)
 title_chain = LLMchain(llm = llm, prompt = titletemplate,verbose=True,output_key='title',memory=titlememory)
 script_chain = LLMchain(llm = llm, prompt = scripttemplate,verbose=True,output_key='script',memory=scriptmemory)
 
