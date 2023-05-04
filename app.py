@@ -3,7 +3,7 @@ from api_key import apikey
 import streamlit as st
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
-from lanchain.chains import LLMChain,SequentialChain
+from langchain.chains import LLMChain,SequentialChain
 from langchain.memory import ConversationBufferMemory
 from langchain.utilities import WikipediaAPIWrapper
 
