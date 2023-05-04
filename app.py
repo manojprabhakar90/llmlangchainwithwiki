@@ -7,7 +7,11 @@ from langchain.chains import LLMChain,SequentialChain
 from langchain.memory import ConversationBufferMemory
 from langchain.utilities import WikipediaAPIWrapper
 
-os.environ['OPENAI_API_KEY']= apikey 
+def get_api_key():
+    input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
+    return input_text
+
+openai_api_key = get_api_key()
 
 st.title('🦜🔗 Youtube GPT Creator')
 prompt = st.text_input('Plug in your prompt here')
