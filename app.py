@@ -25,8 +25,8 @@ titlememory = ConversationBufferMemory(input_key='topic',memory_key='chat_histor
 scriptmemory = ConversationBufferMemory(input_key='title',memory_key='chat_history')
 
 llm=OpenAI(temperature = 0.9)
-title_chain = LLMchain(llm = llm, prompt = titletemplate,verbose=True,output_key='title',memory_key=titlememory)
-script_chain = LLMchain(llm = llm, prompt = scripttemplate,verbose=True,output_key='script',memory_key=scriptmemory)
+title_chain = LLMchain(llm = llm, prompt = titletemplate,verbose=True,output_key='title',memory=titlememory)
+script_chain = LLMchain(llm = llm, prompt = scripttemplate,verbose=True,output_key='script',memory=scriptmemory)
 
 wiki = WikipediaAPIWrapper()
 
