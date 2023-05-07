@@ -4,7 +4,7 @@ A langchain app that has been created to use OpenAI, Langchain capabilities and 
 
 Has been deployed in streamlit. https://llmlangchainwithwikiopenaitext.streamlit.app/
 
-Update the OpenAI Key and you should be good to test it for your own topic. 
+Update the OpenAI Key and you should be good to test it for your own topic
 
 
 
